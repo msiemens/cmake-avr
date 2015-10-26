@@ -1,3 +1,10 @@
+# CMake Toolchain Definition
+#
+# This file defines how CMake should tread AVR tragets. This file is
+# based upon https://github.com/msiemens/cmake-avr/blob/bc0c1f0850e80535527b4c2828cffce8dfbabf62/generic-gcc-avr.cmake
+# which is a fork of Matthias Kleemann's original toolchain definition.
+
+
 ##########################################################################
 # "THE ANY BEVERAGE-WARE LICENSE" (Revision 42 - based on beer-ware
 # license):
@@ -55,37 +62,9 @@ set(CMAKE_ASM_COMPILER ${AVR_AS})
 ##########################################################################
 # some necessary tools and variables for AVR builds, which may not
 # defined yet
-# - AVR_UPLOADTOOL
-# - AVR_UPLOADTOOL_PORT
-# - AVR_PROGRAMMER
 # - AVR_MCU
 # - AVR_SIZE_ARGS
 ##########################################################################
-
-# default upload tool
-if(NOT AVR_UPLOADTOOL)
-   set(
-      AVR_UPLOADTOOL avrdude
-      CACHE STRING "Set default upload tool: avrdude"
-   )
-   find_program(AVR_UPLOADTOOL avrdude)
-endif(NOT AVR_UPLOADTOOL)
-
-# default upload tool port
-if(NOT AVR_UPLOADTOOL_PORT)
-   set(
-      AVR_UPLOADTOOL_PORT usb
-      CACHE STRING "Set default upload tool port: usb"
-   )
-endif(NOT AVR_UPLOADTOOL_PORT)
-
-# default programmer (hardware)
-if(NOT AVR_PROGRAMMER)
-   set(
-      AVR_PROGRAMMER avrispmkII
-      CACHE STRING "Set default programmer hardware model: avrispmkII"
-   )
-endif(NOT AVR_PROGRAMMER)
 
 # default MCU (chip)
 if(NOT AVR_MCU)
